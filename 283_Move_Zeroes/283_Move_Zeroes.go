@@ -1,5 +1,7 @@
 package main
 
+import "fmt"
+
 /*
 Given an integer array nums, move all 0's to the end of it while maintaining the relative order of the non-zero elements.
 
@@ -27,22 +29,23 @@ Output: [0]
 // }
 
 func moveZeroes(nums []int) {
-	indx := 0
+	lastIndxNonZero := 0
 
 	for i := 0; i < len(nums); i++ {
 		if nums[i] != 0 {
-			nums[indx], nums[i] = nums[i], nums[indx]
-			indx++
+			fmt.Printf("nums[%d] = %d switch nums[%d] = %d \n", i, nums[i], lastIndxNonZero, nums[lastIndxNonZero])
+			nums[lastIndxNonZero], nums[i] = nums[i], nums[lastIndxNonZero]
+			lastIndxNonZero++
 		}
 	}
 }
 
 func main() {
-	// ex1 := []int{0, 1, 0, 3, 12}
+	ex1 := []int{0, 1, 0, 3, 12}
 	// ex2 := []int{1, 0, 0}
-	ex3 := []int{0, 0, 1}
-	// moveZeroes(ex1)
+	// ex3 := []int{0, 0, 1}
+	moveZeroes(ex1)
 	// moveZeroes(ex2)
-	moveZeroes(ex3)
+	// moveZeroes(ex3)
 
 }
