@@ -29,6 +29,6 @@ func reverse(x int) {
 }
 
 func main() {
-	num := -123124
+	num := 123000
 	reverse(num)
 }
